@@ -80,20 +80,20 @@ int showmenu()
 void game()
 {
     //进行游戏初始化
-    int map[4][4] = {{2,2,4,8},{4,2,4,8},{4,4,2,2},{2,4,2,4}};
-    /*for(int i = 0; i < 4; i++)
+    int map[4][4];
+    for(int i = 0; i < 4; i++)
     {
         for(int j = 0; j < 4; j++)
         {
             map[i][j] = 0;
         }
     }
-    */
+    
     int move = 0;
     while(1)
     {
         system("cls");
-
+        newnum(map, 0.7);               //参数设置部分待完成
         showmap(map);
         if(gamecontinue(map) == 0) break;
         int check = 0;                  //检验操作是否有意义
@@ -119,7 +119,7 @@ void newnum(int (*map)[4], double k)
     int count = 0; //用于统计地图中有多少0
     for(int i = 0; i < 4; i++)
     {
-        for(int j = 0; j < 4; j++) if(map[i][j] = 0) count ++;
+        for(int j = 0; j < 4; j++) if(map[i][j] == 0) count ++;
     }
     int seed = rand() % count + 1;
     count = 0;
