@@ -1,7 +1,6 @@
 #ifndef _Merge_
 #define _Merge_
 
-
 int mergeup(int (*arr)[4]);
 int mergedown(int (*arr)[4]);
 int mergeleft(int (*arr)[4]);
@@ -238,7 +237,7 @@ int mergeleft(int (*arr)[4])
         if(arr[i][2] == 0) count ++;
         while(arr[i][2] == 0)               //进行移动
         {
-            arr[i][2] = arr[i][2];
+            arr[i][2] = arr[i][3];
             arr[i][3] = 0;
         }
     }
@@ -318,6 +317,5 @@ int mergeright(int (*arr)[4])
     }
     return count;
 }
-
 
 #endif

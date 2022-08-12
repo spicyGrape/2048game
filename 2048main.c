@@ -55,7 +55,18 @@ int main(void)
 
 int gamecontinue(int (*arr)[4])
 {
-    return 1;
+    int map[4][4];
+    for(int i = 0; i < 4; i++)
+    {
+        for(int j = 0; j < 4; j++)
+        {
+            map[i][j] = arr[i][j];
+        }
+    }
+    int count = 0;
+    for(int i = 1; i < 5; i++)count += merge(map,i);
+    if(count == 0) return 0;
+    else return 1;
 }
 
 int showmap(int (*map)[4])
@@ -105,6 +116,7 @@ void game()
             if(check == 0) printf("操作无效，");
         }
     }
+    printf("游戏已结束！\n");
 }
 
 void scores()
