@@ -11,7 +11,7 @@ int showmenu();
 int gamecontinue(int (*arr)[4]);
 
 //在地图上生成一个随机数，k为出现4的概率，否则出现2
-int newnum(int (*map)[4], float k);
+void newnum(int (*map)[4], double k);
 
 //打印地图
 int showmap(int (*map)[4]);
@@ -113,8 +113,33 @@ void scores()
     printf("Runing function scores\n");
 }
 
-int newnum(int (*map)[4], float k)
+void newnum(int (*map)[4], double k)
 {
     srand((unsigned)time(NULL));
     int count = 0; //用于统计地图中有多少0
+    for(int i = 0; i < 4; i++)
+    {
+        for(int j = 0; j < 4; j++) if(map[i][j] = 0) count ++;
+    }
+    int seed = rand() % count + 1;
+    count = 0;
+    int notdone = 1;
+    for(int i = 0; i < 4 && notdone; i++)
+    {
+        for(int j = 0; j < 4; j++)
+        {
+            if(map[i][j] == 0)
+            {
+                count ++;
+                if(count == seed)
+                {
+                    double iftwo = rand() % 100 / 100.0;
+                    if(iftwo < k) map[i][j] = 2;
+                    if(iftwo >= k) map[i][j] = 4;
+                    notdone = 0;
+                    break;
+                }
+            }
+        }
+    }
 }

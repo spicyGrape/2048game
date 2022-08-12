@@ -252,7 +252,7 @@ int mergeright(int (*arr)[4])
     for(int i = 0; i < 4; i++)
     {
         int target = -1, tj = 0;
-        for(int j = 3; j < 4; j--)
+        for(int j = 3; j >= 0; j--)
         {
             if(arr[i][j] != 0)
             {
@@ -263,7 +263,7 @@ int mergeright(int (*arr)[4])
                     target = -1;
                     tj = 3;
                     count ++;
-                    j = -1;
+                    j = 4;
                 }
                 else
                 {
