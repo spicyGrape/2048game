@@ -14,7 +14,10 @@ int gamecontinue(int (*arr)[4]);
 void newnum(int (*map)[4], double k);
 
 //打印地图
-int showmap(int (*map)[4]);
+int showmap(int (*map)[4], int score);
+
+//统计目前的得分
+int scoremap(int map[][4]);
 
 //游戏主函数
 void game();
@@ -69,8 +72,9 @@ int gamecontinue(int (*arr)[4])
     else return 1;
 }
 
-int showmap(int (*map)[4])
+int showmap(int (*map)[4],int score)
 {
+    printf("得分：  %d\n", score);
     for(int i = 0; i < 4; i++)
     {
         printf("%d\t%d\t%d\t%d\n\n", map[i][0], map[i][1], map[i][2], map[i][3]);
@@ -105,7 +109,7 @@ void game()
     {
         system("cls");
         newnum(map, 0.7);               //参数设置部分待完成
-        showmap(map);
+        showmap(map,scoremap(map));
         if(gamecontinue(map) == 0) break;
         int check = 0;                  //检验操作是否有意义
         while(check == 0)
@@ -155,3 +159,17 @@ void newnum(int (*map)[4], double k)
         }
     }
 }
+
+int scoremap(int map[][4])
+{
+    int score = 0;
+    for(int i = 0; i < 4; i++)
+    {
+        for(int j = 0; j < 4; j++)
+        {
+            score += map[i][j];
+        }
+    }
+    return score;
+}
+
