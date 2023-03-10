@@ -104,7 +104,7 @@ void game()
         }
     }
     
-    int move = 0;
+    char move = 0;
     while(1)
     {
         system("cls");
@@ -114,8 +114,8 @@ void game()
         int check = 0;                  //检验操作是否有意义
         while(check == 0)
         {
-            printf("输入数字进行操作: 1 向上 2 向下 3 向左 4 向右\n");
-            scanf("%d", &move);             //输入检验待完成
+            printf("输入数字进行操作: w 向上 s 向下 a 向左 d 向右\n");
+            scanf("%c", &move);             //输入检验待完成
             check = merge(map, move);
             if(check == 0) printf("操作无效，");
         }
