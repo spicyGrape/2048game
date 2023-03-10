@@ -7,17 +7,17 @@ int mergeleft(int (*arr)[4]);
 int mergeright(int (*arr)[4]);
 
 //用于合并每行或每列的函数,第一个参数传入数组,第二个参数传入方向 1:向上 2:向下 3:向左 4:向右
-int merge(int (*arr)[4], int direction)
+int merge(int (*arr)[4], char direction)
 {
     switch(direction)
     {
-        case 1:
+        case 'w':
         return mergeup(arr);
-        case 2:
+        case 's':
         return mergedown(arr);
-        case 3:
+        case 'a':
         return mergeleft(arr);
-        case 4:
+        case 'd':
         return mergeright(arr);
     }
 }
